@@ -1,4 +1,6 @@
-Question Etape 3 :
+Réponses TP Sécurité Django
+
+## Question Etape 3 :
 WARNINGS:
 ?: (security.W009) Your SECRET_KEY has less than 50 characters, less than 5 unique characters, or it's prefixed with 'django-insecure-' indicating that it was generated automatically by Django. Please generate a long and random value, otherwise many of Django's security-critical features will be vulnerable to attack.
 La SECRET_KEY est trop courte pour plus de sécuriser il faut qu'elle soit plus longue.
@@ -9,16 +11,16 @@ Pour utiliser les MIDDLEWARE il faut definir CSRF_COOKIE_SECURE afin d'éviter l
 ?: (security.W018) You should not have DEBUG set to True in deployment.
 En généralee en déploiement on enleve le debug pour la production.
 
-Question Etape 4 :
+## Question Etape 4 :
 Le debug a true peut transmettre des information confidentiel sur l'application la structure du code, de la base de donnée et l'emplacemetn de fichier
 mais aussi les valuer de nos variable comme par exemple notre SECRET_KEY.
 
-Question Etape 7 :
+## Question Etape 7 :
 
 Il s'agit du detournement de clique c'est une technique des pirates qui permet de tromper l'utilisateur pour le faire cliquer
 sur des élément caché sans s'en rendre compte il peute ffectuer des actions non desirée.
 
-Test Etape 8 :
+## Test Etape 8 :
 Refused to execute inline script because it violates the following Content Security Policy directive: "script-src 'self'".
 Either the 'unsafe-inline' keyword, a hash ('sha256-JYtB2qaxzL3oQZw2p7NvcjhlzoK4Mmd5I/0pH2xOM5E='),
 or a nonce ('nonce-...') is required to enable inline execution.
