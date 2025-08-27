@@ -16,10 +16,21 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from .views import login_view
+from django.urls import path
+from .views import (
+    login_view,
+    DocumentListView,
+    DocumentCreateView,
+    DocumentUpdateView,
+    DocumentDeleteView,
+    DocumentPublishView
+)
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
     path('login/', login_view, name='login'),
-
+    path('documents/', DocumentListView.as_view(), name='document_list'),
+    path('documents/create/', DocumentCreateView.as_view(), name='document_create'),
+    path('documents/<int:pk>/edit/', DocumentUpdateView.as_view(), name='document_edit'),
+    path('documents/<int:pk>/delete/', DocumentDeleteView.as_view(), name='document_delete'),
+    path('documents/<int:pk>/publish/', DocumentPublishView.as_view(), name='document_publish'),
 ]

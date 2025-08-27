@@ -1,0 +1,25 @@
+<h1>Liste des documents</h1>
+
+<a href="{% url 'document_create' %}">Créer un nouveau document</a>
+
+{% for document in object_list %}
+    <div style="border: 1px solid #ccc; padding: 10px; margin-bottom: 15px;">
+        <h2>{{ document.title }}</h2>
+        <p>{{ document.content|truncatechars:100 }}</p>
+        <p><strong>Propriétaire:</strong> {{ document.owner.email }}</p>
+
+        {% if document.user_can_edit request.user %}
+            <a href="{% url 'document_edit' document.pk %}">Modifier</a>
+        {% endif %}
+
+        {% if document.user_can_delete request.user %}
+            <a href="{% url 'document_delete' document.pk %}">Supprimer</a>
+        {% endif %}
+
+        {% if request.user.has_perm 'accounts.publish_document' and not document.is_public %}
+            <a href="{% url 'document_publish' document.pk %}">Publier</a>
+        {% endif %}
+    </div>
+{% empty %}
+    <p>Aucun document trouvé.</p>
+{% endfor %}

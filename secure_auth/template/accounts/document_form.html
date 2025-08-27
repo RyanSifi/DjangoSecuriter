@@ -1,0 +1,9 @@
+<h1>{% if form.instance.pk %}Modifier le document{% else %}Créer un nouveau document{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Enregistrer</button>
+</form>
+
+<a href="{% url 'document_list' %}">Annuler</a>

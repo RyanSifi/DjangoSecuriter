@@ -1,0 +1,9 @@
+<h1>Publier le document</h1>
+<p>Voulez-vous publier le document "{{ object.title }}" ?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <button type="submit">Publier</button>
+</form>
+
+<a href="{% url 'document_list' %}">Annuler</a>
